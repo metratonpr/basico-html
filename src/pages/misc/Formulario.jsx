@@ -1,20 +1,22 @@
+import { useState } from "react";
 
 export const Formulario = () => {
 
-    const initialState ={
+    const initialState = {
         nome: "",
         email: "",
         observacao: ""
     }
 
     const [formData, setFormData] = useState(initialState);
-    
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value
         });
+    }
 
     return (
         <>
@@ -22,15 +24,18 @@ export const Formulario = () => {
             <form action="">
                 <div className="form-group">
                     <label htmlFor="nome" className="form-label">Nome:</label>
-                    <input type="text" className="form-control" name="nome" id="nome" />
+                    <input type="text" className="form-control" name="nome" id="nome"
+                    value={formData.nome} onChange={handleChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="e-mail" className="form-label">E-mail:</label>
-                    <input type="email" className="form-control" name="e-mail" id="e-mail" />
+                    <input type="email" className="form-control" name="email" id="email" 
+                    value={formData.email} onChange={handleChange} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="observacao" className="form-label">Observação:</label>
-                    <textarea name="observacao" id="observacao" className="form-control">                    
+                    <textarea name="observacao" id="observacao" className="form-control"
+                    value={formData.observacao} onChange={handleChange}>
                     </textarea>
                 </div>
                 <button type="submit" className="btn btn-primary">Salvar</button>
