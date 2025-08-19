@@ -2,17 +2,23 @@ import { useState } from "react";
 import { Child } from "./Child";
 
 export function Parent() {
-    const [messagem, setMessagem] = useState("");
+    const [mensagem, setMensagem] = useState("");
+    
+    const mudarMensagem = (e) => {
+        setMensagem(e.target.value);
+        console.log(mensagem);
+    }
+
     return (
         <>
             <div>
                 <h2>
                     Componente Pai
                 </h2>
-                <p>Mensagem: <strong>{messagem}</strong></p>
+                <p>Mensagem: <strong>{mensagem}</strong></p>
             </div>
 
-            <Child></Child>
+            <Child mensagem={mensagem} onChangeMensagem={mudarMensagem}></Child>
         </>
     )
 }
