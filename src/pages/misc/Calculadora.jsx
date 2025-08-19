@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Fluxo } from "./Fluxo";
 
 function Calculadora() {
 
@@ -42,6 +43,8 @@ function Calculadora() {
                 <p>Valor Para Baixo: {Math.floor(parseFloat(valorA) * parseFloat(valorB))}</p>   
                 <p>Valor Para Cima: {Math.ceil(parseFloat(valorA) * parseFloat(valorB))}</p>   
             </div>
+
+            <Fluxo valorA={valorA} valorB={valorB}></Fluxo>
 
         </>
     )
